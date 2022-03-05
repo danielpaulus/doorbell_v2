@@ -455,7 +455,11 @@ if __name__ == "__main__":
    while True:
       while rx.ready():
          remote_msg = rx.get()
-         print("msg: %s, from: %d, to: %d, msg_id: %d, flags: %d" % ("".join(chr (c) for c in remote_msg["msg"]), remote_msg["headerFrom"], remote_msg["headerTo"], remote_msg["headerMsgId"], remote_msg["headerFlags"]) )
+         print("msg: %s, from: %d, to: %d, msg_id: %d, flags: %d" % (remote_msg["msg"], remote_msg["headerFrom"], remote_msg["headerTo"], remote_msg["headerMsgId"], remote_msg["headerFlags"]) )
+         if PONG_MSG == remote_msg["msg"][0]:
+            print("PONG")
+         if PING_MSG == remote_msg["msg"][0]:
+            print("PING")
          
    
 

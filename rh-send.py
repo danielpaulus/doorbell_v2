@@ -439,7 +439,7 @@ if __name__ == "__main__":
    
    pi = pigpio.pi() # Connect to local Pi.
 
-   rx = rh.rx(pi, RX, BPS) # Specify Pi, rx GPIO, and baud.
+   #rx = rh.rx(pi, RX, BPS) # Specify Pi, rx GPIO, and baud.
    tx = rh.tx(pi, TX, BPS) # Specify Pi, tx GPIO, and baud.
    
    tx.set_this_address(DEVICE_ADDRESS) # Set the tx device address
@@ -459,11 +459,11 @@ if __name__ == "__main__":
 
    time.sleep(0.1)
    print("sending ping")
-   tx.put("ping")
+   tx.put([PING_MSG])
       
    time.sleep(3)
 
-   rx.cancel() # Cancel Virtual Wire receiver.
+   #rx.cancel() # Cancel Virtual Wire receiver.
    tx.cancel() # Cancel Virtual Wire transmitter.
 
    pi.stop() # Disconnect from local Pi.
