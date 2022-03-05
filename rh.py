@@ -421,6 +421,14 @@ if __name__ == "__main__":
    import time
    import pigpio
    import rh
+   
+   PING_MSG = 0x2
+   PONG_MSG = 0x3
+   RINGRING_MSG =0x1
+   RASPI_ID = 100
+   SENDER_ID = 101
+   SENDER2_ID = 102
+   BELL_ID = 103
 
    RX=23
    TX=22
